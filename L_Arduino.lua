@@ -179,7 +179,7 @@ function setVariableIfChanged(serviceId, name, value, deviceId)
     log(serviceId ..","..name..", "..value..", ".. deviceId)
     local curValue = luup.variable_get(serviceId, name, deviceId)
     
-    if ((value ~= curValue) or (curValue == nil)) then
+    if ((value ~= curValue) or (curValue == nil) or (serviceId == "urn:micasaverde-com:serviceId:SceneController1")) then
         luup.variable_set(serviceId, name, value, deviceId)
         return true
         
